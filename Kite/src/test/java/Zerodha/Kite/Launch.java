@@ -14,6 +14,7 @@ public class Launch extends BaseClass {
 	  driver = initDriver();   //Initiate the driver
 	  PageObject obj = new PageObject(driver);    //Create Page Object reference 
 	  obj.search().sendKeys("ITC");
+	 obj.search().click();
   }
   
   

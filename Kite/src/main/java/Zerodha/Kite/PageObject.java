@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 
 public class PageObject extends BaseClass {
 	
-	By search = By.id("txtSearchComp");
+	By search = By.id("txtSearchCompa");
 
 	
 	

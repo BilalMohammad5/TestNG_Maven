@@ -1,5 +1,6 @@
 package Zerodha.Kite;
 
+import java.io.File;
 import java.io.FileInputStream;
 
 import java.io.FileNotFoundException;
@@ -7,7 +8,11 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -41,6 +46,7 @@ public class BaseClass {
 			
 			
 		}
+		
 		if(browser.equals("IE"))
 		{
 			System.out.println("Test initiated using IE  browser");
@@ -53,5 +59,14 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		return driver;
 }      
-          // Default Implicit wait before test initiation 
+	
+	public void screenshot(String testCaseName , WebDriver driver) throws IOException {
+		
+		TakesScreenshot ts = (TakesScreenshot)driver;  //taking screenshot with help of driver
+		File source = ts.getScreenshotAs(OutputType.FILE); // saving screenshot to a File
+		String destinationFile = System.getProperty("user.dir")+"\\Reports\\"+testCaseName+".png"; //creating a PNG file with dynamic method name and web driver instance
+		
+		FileUtils.copyFile(source,new File(destinationFile)); //Transferring PNG file from  source to Destination location in project folder
+		System.out.println("Ereor screenshot attached with "+testCaseName);
+	}
 }

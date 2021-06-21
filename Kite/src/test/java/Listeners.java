@@ -1,10 +1,15 @@
 
 
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
-import org.testng.ITestResult; 
+import org.testng.ITestResult;
 
-public class Listeners implements ITestListener {
+import Zerodha.Kite.BaseClass; 
+
+public class Listeners extends BaseClass implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -17,7 +22,25 @@ public class Listeners implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Listener fail");
+		System.out.println("entered listener");
+		//Screenshot
+		WebDriver driver = null;
+	String methodName = result.getMethod().getMethodName();
+		
+	try {
+		driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+	
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	try {
+		screenshot(methodName ,driver);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println("Failed to take the screenshot");
+	}
 	}
 
 	@Override
