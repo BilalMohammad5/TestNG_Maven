@@ -1,3 +1,4 @@
+package listernerConfig;
 
 
 import java.io.IOException;
@@ -7,23 +8,41 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import Zerodha.Kite.BaseClass; 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+import Zerodha.Kite.BaseClass;
+import extentReports.Extent; 
 
 public class Listeners extends BaseClass implements ITestListener {
-
+	ExtentReports  extObj = Extent.generateReports();
+	ExtentTest test;
+	
 	@Override
 	public void onTestStart(ITestResult result) {
+		
+		String testName = result.getMethod().getMethodName(); // Attaching test method Name Dynamically to report
+		 
+		 test = extObj.createTest(testName);
+		
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("Listener pass");
+		test.log(Status.PASS, "Test passed");
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		System.out.println("entered listener");
-		//Screenshot
+		
+		//attaching fail test log 
+		
+		test.fail(result.getThrowable());
+		
+		// Attaching Screenshot upon failure
 		WebDriver driver = null;
 	String methodName = result.getMethod().getMethodName();
 		
@@ -61,6 +80,7 @@ public class Listeners extends BaseClass implements ITestListener {
 
 	@Override
 	public void onFinish(ITestContext context) {
+		extObj.flush();
 	}
 
 

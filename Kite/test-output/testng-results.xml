@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="3" total="4" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-06-21T14:03:18 IST" name="Default suite" finished-at="2021-06-21T14:03:26 IST" duration-ms="7790">
+  <suite started-at="2021-06-21T17:57:10 IST" name="Suite" finished-at="2021-06-21T17:57:19 IST" duration-ms="8606">
     <groups>
       <group name="smoke">
-        <method signature="Launch.launchKite()[pri:0, instance:Zerodha.Kite.Launch@301eda63]" name="launchKite" class="Zerodha.Kite.Launch"/>
+        <method signature="Launch.launchKite()[pri:0, instance:Zerodha.Kite.Launch@59e505b2]" name="launchKite" class="Zerodha.Kite.Launch"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2021-06-21T14:03:18 IST" name="Default test" finished-at="2021-06-21T14:03:26 IST" duration-ms="7790">
+    <test started-at="2021-06-21T17:57:10 IST" name="Test" finished-at="2021-06-21T17:57:19 IST" duration-ms="8606">
       <class name="Zerodha.Kite.Launch">
-        <test-method signature="launchKite()[pri:0, instance:Zerodha.Kite.Launch@301eda63]" started-at="2021-06-21T14:03:18 IST" name="launchKite" finished-at="2021-06-21T14:03:26 IST" duration-ms="7753" status="FAIL">
+        <test-method signature="launchKite()[pri:0, instance:Zerodha.Kite.Launch@59e505b2]" started-at="2021-06-21T17:57:10 IST" name="launchKite" finished-at="2021-06-21T17:57:19 IST" duration-ms="8567" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"#txtSearchCompa"}
@@ -19,8 +19,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-E4E5DC2', ip: '192.168.0.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.106, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\bilal\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60729}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 88efce4f74885fd453388bcada0d43bd
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.106, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\bilal\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53177}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8cc35d35ed51adc808a24213e2701f92
 *** Element info: {Using=id, value=txtSearchCompa}]]>
             </message>
             <full-stacktrace>
@@ -30,8 +30,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-E4E5DC2', ip: '192.168.0.4', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.106, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\bilal\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60729}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 88efce4f74885fd453388bcada0d43bd
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.106, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\bilal\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53177}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8cc35d35ed51adc808a24213e2701f92
 *** Element info: {Using=id, value=txtSearchCompa}
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
@@ -85,6 +85,6 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- launchKite -->
       </class> <!-- Zerodha.Kite.Launch -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

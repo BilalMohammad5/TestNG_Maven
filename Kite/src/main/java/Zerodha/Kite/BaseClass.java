@@ -1,5 +1,6 @@
 package Zerodha.Kite;
-
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -17,11 +18,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import Logs.LogFourJ;
 
 public class BaseClass {
 	public WebDriver driver;
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
+
 	
 	
 	public WebDriver	initDriver() throws IOException,FileNotFoundException{
@@ -69,4 +74,7 @@ public class BaseClass {
 		FileUtils.copyFile(source,new File(destinationFile)); //Transferring PNG file from  source to Destination location in project folder
 		System.out.println("Ereor screenshot attached with "+testCaseName);
 	}
+	
+
+	
 }
