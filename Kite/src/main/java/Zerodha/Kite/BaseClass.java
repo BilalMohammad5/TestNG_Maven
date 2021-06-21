@@ -1,17 +1,22 @@
 package Zerodha.Kite;
 
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import Logs.LogFourJ;
+
 public class BaseClass {
 	public WebDriver driver;
+	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 	
 	
 	public WebDriver	initDriver() throws IOException,FileNotFoundException{
@@ -27,10 +32,12 @@ public class BaseClass {
 		if(browser.equals("chrome"))
 		{
 			System.out.println("Test initiated using chrome browser");
+			log.info("Test initiated using chrome browser");
 			System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver_win32\\chromedriver.exe");
 			 driver = new ChromeDriver();
-			 System.out.println(url);
+			 //System.out.println(url);
 			driver.get(url);
+			log.info(driver.getTitle());
 			
 			
 		}

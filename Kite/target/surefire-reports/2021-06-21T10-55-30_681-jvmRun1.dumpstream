@@ -1,0 +1,4 @@
+# Created at 2021-06-21T10:55:31.587
+
+An error occurred while instantiating class Zerodha.Kite.Launch: org/apache/log4j/LogManager
+
