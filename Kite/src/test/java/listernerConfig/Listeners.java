@@ -18,7 +18,6 @@ import extentReports.Extent;
 public class Listeners extends BaseClass implements ITestListener {
 	ExtentReports  extObj = Extent.generateReports();
 	ExtentTest test;
-	WebDriver driver = null;
 	
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -37,25 +36,21 @@ public class Listeners extends BaseClass implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Attaching fail test log");
+		System.out.println("entered listener");
 		
 		//attaching fail test log 
 		
 		test.fail(result.getThrowable());
 		
 		// Attaching Screenshot upon failure
-		System.out.println("Attaching Screenshot upon failure");
-		
-		
+		WebDriver driver = null;
 	String methodName = result.getMethod().getMethodName();
-	System.out.println(" reteriving web driver instance");
 		
 	try {
 		driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
 	
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
-		System.out.println("driver instance retrival failed");
 		e.printStackTrace();
 	}
 	try {
