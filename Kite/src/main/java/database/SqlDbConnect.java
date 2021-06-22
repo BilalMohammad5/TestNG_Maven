@@ -1,5 +1,4 @@
 package database;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,10 +8,15 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 public class SqlDbConnect {
-	public static void main(String args[]) throws SQLException, IOException,FileNotFoundException, ClassNotFoundException {
+	
 		
+	    public static void getDb() throws IOException, ClassNotFoundException, SQLException {
 		//Fetching db values from property file
 		
 		Properties prop = new Properties();
@@ -34,30 +38,45 @@ public class SqlDbConnect {
 		Connection con = DriverManager.getConnection(connection,username,password); //sending credentials to db
 		System.out.println("connected to delta Database");
 		Statement st = con.createStatement();  //creating a statement
-		ResultSet   rs = st.executeQuery("select * from Test_Variables");  //executing query
+		ResultSet   rs = st.executeQuery("select * from Test_Variables2");  //executing query
 		
 
 		File output = new File(outfileLocation);
 		FileWriter writer = new FileWriter(output);
+		Map<String,String> map = new HashMap<>();
 		while(rs.next()) {
 		
 		String browser_Name = rs.getString("Browser_Name");
 		String url = rs.getString("Base_Url");
 		
-
-		writer.write("Browser_Name ="+""+browser_Name);
+		map.put("Browser_Name",browser_Name );
+		map.put("URL", url);
+		
+		 writer.write("Browser_Name="+""+browser_Name);;
 		writer.write("\n");
 		writer.write("url ="+""+url);
 	    System.out.println("row data entered");
 		
 		rs.next();
-		writer.write("\n");	
+			
 		}
+		
 		writer.flush();
 		writer.close();
 		
 		st.close();
 		con.close();
 		
-		
-	}}
+//		Set set = map.entrySet();
+//	      
+//	      // Get an iterator
+//	      Iterator i = set.iterator();
+//	     
+//	      // Display elements 
+//	      while(i.hasNext()) {
+//	         Map.Entry me = (Map.Entry)i.next();
+//	         System.out.print(me.getKey() + ": ");
+//	         System.out.println(me.getValue());
+//	      }
+}
+}
