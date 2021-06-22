@@ -11,6 +11,7 @@ public class LogFourJ {
 		
 		log.error("error");
 		log.info("info");
+		log.fatal("fatal");
 		
 	}
 	

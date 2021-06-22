@@ -2,6 +2,7 @@ package listernerConfig;
 
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
@@ -16,9 +17,10 @@ import Zerodha.Kite.BaseClass;
 import extentReports.Extent; 
 
 public class Listeners extends BaseClass implements ITestListener {
+	
 	ExtentReports  extObj = Extent.generateReports();
 	ExtentTest test;
-	
+	WebDriver driver = null;
 	@Override
 	public void onTestStart(ITestResult result) {
 		
@@ -43,17 +45,24 @@ public class Listeners extends BaseClass implements ITestListener {
 		test.fail(result.getThrowable());
 		
 		// Attaching Screenshot upon failure
-		WebDriver driver = null;
-	String methodName = result.getMethod().getMethodName();
+		
+	String methodName = result.getMethod().getMethodName(); //fetching method name dynamically
 		
 	try {
-		driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+		 //fetching driver instance dynamically using java reflection API
+		 Class clazz =  Class.forName("Zerodha.Kite.BaseClass"); //Object creation using class
+		Field field = clazz.getField("driver");
+		 
+          driver = (WebDriver) field.get(result.getInstance()); //dynamic instance assigned local driver instance
+		
+		//driver = (WebDriver) result.getTestClass().getRealClass().field.get(result.getInstance());
 	
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	try {
+		
 		screenshot(methodName ,driver);
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
