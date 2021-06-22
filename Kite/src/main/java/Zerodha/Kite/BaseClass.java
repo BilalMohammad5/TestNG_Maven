@@ -41,7 +41,7 @@ public class BaseClass {
 		String url = prop.getProperty("url");
 		if(browser.equals("chrome"))
 		{
-			System.out.println("Test initiated using chrome browser");
+			//System.out.println("Test initiated using chrome browser");
 			log.info("Test initiated using chrome browser");
 			System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver_win32\\chromedriver.exe");
 			 driver = new ChromeDriver();

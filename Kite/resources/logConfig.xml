@@ -22,7 +22,7 @@
  
   
   <Loggers>
-    <Root level="fatal">
+    <Root level="trace">
       <AppenderRef ref="File"/>
     </Root>
   </Loggers>
