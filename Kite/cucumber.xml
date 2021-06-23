@@ -9,10 +9,11 @@
   <test thread-count="5" name="Test">
   <groups>
   <run>
-  <include name="smoke"></include>
+  
   
   </run>
   </groups>
+  
     <classes>
       <class name="testRunner.Runner"/>
     </classes>

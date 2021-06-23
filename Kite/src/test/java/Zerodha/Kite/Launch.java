@@ -21,8 +21,8 @@ public class Launch extends BaseClass {
 	//time out
 	
 	
-   @Given("Launch Finology Home Page")
-	@Test(groups= {"smoke"})   //helper attribute
+   @Given("Launch Finology Home Page") //cucumber componey
+	
   public void   launchKite() throws IOException, ClassNotFoundException, SQLException {
 	  try {
 		  
